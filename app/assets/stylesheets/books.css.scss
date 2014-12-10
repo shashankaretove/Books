@@ -1,0 +1,94 @@
+// Place all the styles related to the books controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1{
+	text-align: center;
+}
+
+h3 {
+  text-align : center;
+  border-radius: 1px;
+  }
+
+.link{
+	text-align: center;
+}
+
+.container{ 
+	-webkit-box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
+    }
+
+.edit_container{ 
+	width: 35%;
+	margin-left: 33%;
+	-webkit-box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
+    }
+
+.col table{
+	border-collapse: collapse;
+	margin-left: 2%;
+}
+
+.context{
+	text-align: center;
+}
+
+.col tr th{
+	word-break: break-word;
+	white-space: normal;
+	text-align: center;
+	padding-top: 3.5%;
+    padding-bottom: 3.5%;	
+}
+
+.col tr td{
+	text-align: center;
+	padding-top: .5em;
+    padding-bottom: .5em;
+    width:15%;
+}
+
+.bg_img{
+	width: 30%;
+	display: inline-block;
+	margin-left: 34%;
+	-webkit-filter: drop-shadow(7px 7px 4px rgba(0, 0, 0,.4));
+    filter: url(#drop-shadow);
+	display: inline-block;
+}
+
+.edit_user_img{
+	position: absolute;
+	margin-left: 15%;
+}
+
+.field{
+	margin-top: 8%;
+	text-align: center;
+}
+
+.actions{
+	text-align: center;
+}
+
+.link_to{
+	text-align: center;
+  	font-size: 100%;
+  	//text-shadow: 0.07em 0.3em 0.9em #333;
+  	}
+
+.show_img{
+	margin-left: 37%;
+	box-shadow: 10px 10px 5px #ccc; 
+	-moz-box-shadow: 10px 10px 20px 10px #ccc; 
+	-webkit-box-shadow: 10px 10px 20px 10px #ccc; 
+	-khtml-box-shadow: 10px 10px 20px 10px #ccc;
+	display: inline-block;
+}

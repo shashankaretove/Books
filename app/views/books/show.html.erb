@@ -1,0 +1,181 @@
+
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.likes').click(function(){
+    var e = $(this);
+    if (e.html()=="Like"){
+      e.html('Unlike');  
+    }else{
+      e.html('Like');
+    }
+  });
+});
+</script>
+
+
+
+<style>
+
+h1 {
+  text-align : center;
+  border-radius: 1px;
+  }
+
+.bg_img{
+  position: absolute;
+  display: inline-block;
+  height: auto;
+  margin-left: 400px;
+  margin-top: 140px;
+  width: 1200px;
+  -webkit-filter:blur(5px);
+  -moz-filter: blur(3px); 
+  -o-filter: blur(3px); 
+  -ms-filter: blur(3px); 
+  filter: blur(3px);
+}
+
+.container{ 
+  margin-top:20px;
+  width:550px;
+  -webkit-box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
+}
+
+.context{
+  position: absolute;
+  webkit-box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
+  margin: 10px 350px;
+  border: 1px solid #eee;
+  vertical-align: top;
+  width:800px;
+  font-size: 100%;
+}
+
+ .content{margin:10px 5px;
+  white-space: nowrap;
+  border-left:1em solid transparent;
+  border-right:1em solid transparent;
+  text-overflow: ellipsis;
+}
+
+#n_user{text-align: center;}
+
+.link_to{text-align: center;
+  font-size: 100%;
+  text-shadow: 0.07em 0.3em 0.9em #333;}
+
+.cont_f{
+  word-break: break-word;
+  white-space: normal;
+  width:230px;
+  display: inline-block;
+  text-align: justify;
+  white-space: -webkit-pre-wrap;
+margin:0 50px;
+letter-spacing: 1.5px;
+line-height: 22px;}
+
+.cont{padding-top: -90px;
+ display:inline-block;
+}
+
+.user{margin-left: 20px;
+display:inline-block;
+}
+
+#img_user{width:18px;
+  display:inline-block;
+height:auto;}
+
+#img{
+  width: 200px;
+height: 100%;
+box-shadow: 10px 10px 5px #ccc; 
+-moz-box-shadow: 10px 10px 20px 10px #ccc; 
+-webkit-box-shadow: 10px 10px 20px 10px #ccc; 
+-khtml-box-shadow: 10px 10px 20px 10px #ccc;
+display: inline-block;
+}
+
+</style>
+
+
+<h1>Showing Book</h1>
+
+<br>
+
+<div class="bg_img">
+  <%= image_tag("url.jpeg") %>
+</div>
+
+<div class="context">
+
+<div class="container">
+<br>
+<div class="link_to"><%= link_to 'Back', user_books_path(@user) %>
+</div><br>
+
+<div class="content">
+
+<div id="img">
+
+    <%= image_tag @book.picture, class: "blur" %>
+  </div>
+
+
+
+<div class="cont_f">
+
+<b>Name:</b> <%= @user.first_name + ' ' + @user.last_name %><br>
+
+<b>Book Title:</b> <%= @book.title %><br>
+
+<b>Author:</b> <%= @book.author %><br>
+
+<b>Summary:</b> <%= @book.summary %><br>
+
+</div>
+</div><br>
+
+</div>
+<br><br>
+
+  <div id="com" style="margin: 10px 130px;">
+    <%- @comments.each do |comment| %>
+     <div class='commentContainer'>
+      <div id="img_user">
+        <%= image_tag comment.user.picture %>
+      </div>
+     <div class='user'>
+
+       <b><%= comment.user.first_name%> says:  </b>
+     
+        <%= comment.comment %>&nbsp&nbsp&nbsp&nbsp
+        <%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: "Are you sure?" } %> <br>
+
+        
+            <div>
+                 <a href="javascript:void(0)" class="likes">Like</a> 
+                 
+            </div>
+        
+      </div><hr>
+    </div>
+    <%- end -%>
+    <h5>Select User below to comment</h5>
+    <%= form_for @comment do |f| %>
+    <%= f.select :user_id, User.all.collect {|u| [ u.first_name, u.id ] }%>
+
+<br>
+    <%= f.hidden_field :book_id, value: @book.id%>
+    <%= f.text_area :comment%>
+    <%= f.submit 'Comment'%>
+    <%- end -%>
+    <br>
+  </div><br>
+</div><br><br>
+<br><br><br>

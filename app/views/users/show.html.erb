@@ -1,0 +1,32 @@
+<h3><%= @user.first_name.capitalize %>'s Information</h3>
+
+<hr>
+<div class="container">
+	<br><br />
+<div class="link_to">
+<%= link_to 'Back', users_path %>&nbsp&nbsp&nbsp
+    <%= link_to 'Edit', edit_user_path(@user) %><br><br>
+</div>
+
+<div class="content">
+
+<div class="show_img">
+
+    <%= image_tag @user.picture %>
+  </div>
+
+</div>
+
+<br>
+
+<div class="field">
+
+<b>First Name:</b> <%= @user.first_name %><br>
+
+<b>Last Name:</b> <%= @user.last_name %><br>
+
+<b>Username:</b> <%= @user.username %><br>
+
+</div> <br><br><br><br>
+
+</div><br><br>

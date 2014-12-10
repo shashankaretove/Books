@@ -1,0 +1,74 @@
+<style>
+h1 {
+  text-align : center;
+  border-radius: 1px;
+  }
+
+.container{ 
+  margin-left: 520px;
+  position: absolute;
+  -webkit-box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
+  }
+
+.bg_img{
+  position: absolute;
+  display: inline-block;
+  height: auto;
+  margin-left: 300px;
+  margin-top: 30px;
+  width: 1200px;
+  -webkit-filter:blur(5px);
+  -moz-filter: blur(3px); 
+  -o-filter: blur(3px); 
+  -ms-filter: blur(3px); 
+  filter: blur(3px);
+}
+
+  table {text-align: center;
+    width: 100%;
+    background: #eee;
+    border: 1px solid #eee;
+    -column-gap: 40px;
+    }
+
+  #context{text-align: center;}
+
+  .link_to{text-align: center;
+  font-size: 100%;
+  text-shadow: 0.07em 0.3em 0.9em #333;}
+
+</style>
+
+<br>
+
+<h1>Add a Book</h1>
+<br>  
+
+<div class="bg_img">
+  <%= image_tag("url.jpeg") %>
+</div>
+
+<div class ="container">
+  <br>
+<%- if flash[:error].present? -%>
+<div style="text-align:center;color: white;padding:5px;background-color:red;margin-bottom:12px;" >
+  <%= flash[:error]%>
+</div>
+<%- end -%>
+<br><br>
+<div id="context" style=text-align=center>
+<%= form_for @book, {url: user_books_path} do |f|%>
+<%= f.text_field :title, placeholder: 'Title name*'%><br/><br>
+<%= f.text_field :author, placeholder: 'Author Name*'%><br/><br>
+<%= f.text_area :summary, placeholder: 'summary'%><br/><br>
+<%= f.text_field :picture, placeholder: 'paste image url'%><br/><br>
+<%= f.submit%>
+<%- end -%>
+
+<div class="link_to">
+  <%= link_to 'Back', user_books_path %>
+</div>
+</div>
+<br><br>
+</div>

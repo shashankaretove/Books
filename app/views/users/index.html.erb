@@ -1,0 +1,54 @@
+
+
+
+
+<h1>Home page</h1><br>
+
+<div class="cont">
+
+<% if flash[:notice] %><br>
+    <div class="notice" style="text-shadow: 0.07em 0.3em 0.9em #333; text-align:center; color: green; 
+      padding:5px; margin-left:21%; position: absolute;">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
+<div class="link">
+
+<%= link_to 'New User', new_user_path %>
+
+</div>
+
+<hr><table>
+ <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Username</th>
+    <th>Image</th>
+    <th></th>
+  </tr>
+
+<% @user.each do |user| %>
+
+   <div class="links">
+  <tr>
+    <td><%= user.id %></td>
+    <td><%= user.first_name + ' ' +user.last_name %></td>
+    <td><%= user.username %></td>
+    <td><%= image_tag user.picture, style: "width: 50%; height: auto;" %></td>
+    
+
+     <td>
+      <div class="link_to" >
+    <%= link_to 'View Books', user_books_path(user) %> 
+    <%= link_to 'Show', user %> 
+    <%= link_to 'Edit', edit_user_path(user) %> 
+    <%= link_to 'Remove', user, method: :delete, data: { confirm: "Are you sure?" } %> 
+  </td>
+  </div
+ </tr>
+
+<% end %>
+</div>
+</table>
+</div>

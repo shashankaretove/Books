@@ -1,0 +1,33 @@
+
+<h1>User Registration</h1>
+
+<br>
+
+<div class="container">
+
+<div class="bg_img">
+  <%= image_tag("user-img.png") %>
+</div>
+
+<%- if flash[:error].present? -%>
+<div style="text-align:center;color: red; margin-left:5%; margin-top: -0.5%; position: absolute;" >
+  <%= flash[:error]%>
+</div>
+<%- end -%>
+<br><br>
+<div class="context" style=text-align=center>
+<%= form_for @user, {url: users_path} do |f|%>
+<%= f.text_field :first_name, placeholder: 'First Name*'%><br/><br>
+<%= f.text_field :last_name, placeholder: 'Last Name'%><br/><br>
+<%= f.text_field :username, placeholder: 'username'%><br/><br>
+<%= f.text_field :picture, placeholder: 'paste image url'%><br/><br>
+<%= f.submit%>
+<%- end -%>
+
+<div class="link_to">
+<%= link_to 'Back', users_path %>
+</div>
+
+</div> <br><br>
+
+</div>

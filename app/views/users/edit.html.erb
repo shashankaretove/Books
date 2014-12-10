@@ -1,0 +1,54 @@
+
+
+<h1>Editing User</h1>
+<br>
+
+<div class="main">
+
+<div class="edit_user_img">
+    <%= image_tag @user.picture%>
+</div>
+
+
+<div class='edit_container'>
+  
+<%- if flash[:error].present? -%>
+	<div style="text-align:center;color: white;padding:5px; margin-left:80px; position: absolute;" >
+  <%= flash[:error]%>
+  	</div>
+<%- end -%>
+
+<br>
+
+<%= form_for(@user) do |f| %>
+<div class="field"><br>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field"><br>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %><br>
+  </div>
+  <div class="field"><br>
+    <%= f.label :username %>
+    <%= f.text_field :username %><br>
+  </div>
+
+    <div class="field"><br>
+    <%= f.label :picture %>
+    <%= f.text_field :picture %><br>
+  </div><br>
+  <div class="actions">
+    <%= f.submit  %><br><br>
+  </div>
+<%- end -%>
+
+<div class="link_to">
+  <%= link_to 'Show', user_path %>&nbsp&nbsp&nbsp
+<%= link_to 'Back', users_path %>
+</div>
+
+ <br><br><br>
+
+</div>
+</div>
